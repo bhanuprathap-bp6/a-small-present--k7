@@ -1,0 +1,1030 @@
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+      body {
+        margin: 0;
+        padding: 10px 20;
+        background: radial-gradient(#e7059c,rgb(18, 144, 228));
+        color: antiquewhite;
+        box-sizing: border-box;
+        outline: none;
+        list-style: none;
+        text-decoration: none;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .firework {
+        position: absolute;
+      }
+      .explosion {
+        position: absolute;
+        left: -2px;
+        bottom: 0;
+        width: 4px;
+        height: 80px;
+        transform-origin: 50% 100%;
+        /* background-color: rgba(0,0,0,.2); */
+        overflow: hidden;
+      }
+      .explosion:nth-child(1) {
+        transform: rotate(0deg) translateY(-15px);
+      }
+      .explosion:nth-child(2) {
+        transform: rotate(30deg) translateY(-15px);
+      }
+      .explosion:nth-child(3) {
+        transform: rotate(60deg) translateY(-15px);
+      }
+      .explosion:nth-child(4) {
+        transform: rotate(90deg) translateY(-15px);
+      }
+      .explosion:nth-child(5) {
+        transform: rotate(120deg) translateY(-15px);
+      }
+      .explosion:nth-child(6) {
+        transform: rotate(150deg) translateY(-15px);
+      }
+      .explosion:nth-child(7) {
+        transform: rotate(180deg) translateY(-15px);
+      }
+      .explosion:nth-child(8) {
+        transform: rotate(210deg) translateY(-15px);
+      }
+      .explosion:nth-child(9) {
+        transform: rotate(240deg) translateY(-15px);
+      }
+      .explosion:nth-child(10) {
+        transform: rotate(270deg) translateY(-15px);
+      }
+      .explosion:nth-child(11) {
+        transform: rotate(300deg) translateY(-15px);
+      }
+      .explosion:nth-child(12) {
+        transform: rotate(330deg) translateY(-15px);
+      }
+      
+      .explosion::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: 40px;
+        background-color: #f5cf52;
+      }
+      
+        
+      .container {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      }
+      .container span {
+      display: block;
+       }
+        
+      .text1 {
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 8px;
+      margin-bottom: 20px;
+      background: radial-gradient(blueviolet,#2c2f69);
+      position: relative;
+      animation: text 3s 1;
+      font-family:Segoe Script;
+      border-radius: 30%;
+       }
+        
+      .text2 {
+      font-size: 25px;
+      color: yellow;
+      font-family: Segoe Print,Georgia, serif;
+      }
+      
+      @keyframes text {
+      0% {
+      color: black;
+       margin-bottom: -40px;
+       }
+        
+       30% {
+      letter-spacing: 25px;
+      margin-bottom: -40px;
+       }
+        
+      85% {
+      letter-spacing: 8px;
+      margin-bottom: -40px;
+       }
+       }
+      
+      @keyframes explosion {
+        0% {
+          top: 100%;
+        }
+        33%, 100% {
+          top: -50%;
+        }
+      }
+      
+      #firework1 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework1 .explosion::before {
+        animation: explosion 2s ease-in-out infinite;
+      }
+      
+      #firework2 {
+        left: 40%;
+        top: 45%;
+        transform: scale(.7);
+      }
+      #firework2 .explosion::before {
+        animation: explosion 2s .6s ease-in-out infinite;
+        background-color: red;}
+      
+      #firework3 {
+        left: 60%;
+        top: 65%;
+        transform: scale(.4);
+      }
+      #firework3 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: green;
+      }
+      
+      #firework4 {
+        left: 60%;
+        top: 45%;
+        transform: scale(.2);
+      }
+      #firework4 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: yellow;
+      }
+      
+      #firework5 {
+        left: 10%;
+        top: 65%;
+        transform: scale(.4);
+      }
+      #firework5 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: orange;
+      }
+      
+      #firework6 {
+        left: 20%;
+        top: 35%;
+        transform: scale(.4);
+      }
+      #firework6 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: violet;
+      }
+      
+      
+      
+      #firework7 {
+        left: 90%;
+        top: 65%;
+        transform: scale(.2);
+      }
+      #firework7 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: indigo;
+      }
+      
+      #firework8 {
+        left: 90%;
+        top: 45%;
+        transform: scale(.2);
+      }
+      #firework8 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      #firework9 {
+        left: 90%;
+        top: 45%;
+        transform: scale(.2);
+      }
+      #firework9 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: brown;
+      }
+      
+      #firework10 {
+        left: 90%;
+        top: 35%;
+        transform: scale(.5);
+      }
+      #firework10 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      #firework11 {
+        left: 30%;
+        top: 55%;
+        transform: scale(.3);
+      }
+      #firework11 .explosion::before {
+        animation: explosion 2s .6s ease-in-out infinite;
+        background-color: darkred;}
+      
+      #firework12 {
+        left: 30%;
+        top: 25%;
+        transform: scale(.7);
+      }
+      #firework12 .explosion::before {
+        animation: explosion 2s .6s ease-in-out infinite;
+        background-color: red;}
+      
+      #firework13 {
+        left: 40%;
+        top: 25%;
+        transform: scale(.4);
+      }
+      #firework13 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: green;
+      }
+      
+      #firework14 {
+        left: 60%;
+        top: 25%;
+        transform: scale(.2);
+      }
+      #firework14 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: yellow;
+      }
+      
+      #firework15 {
+        left: 10%;
+        top: 35%;
+        transform: scale(.4);
+      }
+      #firework15 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: orange;
+      }
+      
+      #firework16 {
+        left: 20%;
+        top: 35%;
+        transform: scale(.4);
+      }
+      #firework16 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: violet;
+      }
+      
+      
+      
+      #firework17 {
+        left: 90%;
+        top: 25%;
+        transform: scale(.2);
+      }
+      #firework17 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: indigo;
+      }
+      
+      #firework18 {
+        left: 90%;
+        top: 35%;
+        transform: scale(.2);
+      }
+      #firework18 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      #firework19 {
+        left: 90%;
+        top: 30%;
+        transform: scale(.2);
+      }
+      #firework19 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: brown;
+      }
+      
+      #firework20 {
+        left: 90%;
+        top: 15%;
+        transform: scale(.5);
+      }
+      #firework20 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      
+      #firework21 {
+        left: 80%;
+        top: 55%;
+        transform: scale(.3);
+      }
+      #firework21 .explosion::before {
+        animation: explosion 2s .6s ease-in-out infinite;
+        background-color: darkred;}
+      
+      #firework22 {
+        left: 80%;
+        top: 75%;
+        transform: scale(.7);
+      }
+      #firework22 .explosion::before {
+        animation: explosion 2s .6s ease-in-out infinite;
+        background-color: red;}
+      
+      #firework23 {
+        left: 80%;
+        top: 65%;
+        transform: scale(.4);
+      }
+      #firework23 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: green;
+      }
+      
+      #firework24 {
+        left: 80%;
+        top: 55%;
+        transform: scale(.2);
+      }
+      #firework24 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: yellow;
+      }
+      
+      #firework25 {
+        left: 10%;
+        top: 45%;
+        transform: scale(.4);
+      }
+      #firework25 .explosion::before {
+        animation: explosion 2s .3s ease-in-out infinite;
+        background-color: orange;
+      }
+      
+      #firework26 {
+        left: 20%;
+        top: 65%;
+        transform: scale(.4);
+      }
+      #firework26 .explosion::before {
+        animation: explosion 1s .4s ease-in-out infinite;
+        background-color: violet;
+      }
+      
+      
+      
+      #firework27 {
+        left: 30%;
+        top: 65%;
+        transform: scale(.2);
+      }
+      #firework27 .explosion::before {
+        animation: explosion 3s .1s ease-in-out infinite;
+        background-color: indigo;
+      }
+      
+      #firework28 {
+        left: 20%;
+        top: 55%;
+        transform: scale(.2);
+      }
+      #firework28 .explosion::before {
+        animation: explosion 3s .2s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      #firework29 {
+        left: 90%;
+        top: 80%;
+        transform: scale(.2);
+      }
+      #firework29 .explosion::before {
+        animation: explosion 2s .4s ease-in-out infinite;
+        background-color: brown;
+      }
+      
+      #firework30 {
+        left: 20%;
+        top: 75%;
+        transform: scale(.5);
+      }
+      #firework30 .explosion::before {
+        animation: explosion 3s .4s ease-in-out infinite;
+        background-color: red;
+      }
+      
+      .beforepg{
+          text-align: center;
+          
+          color:aliceblue;
+          padding: 0%;
+      }
+      #bt {
+        border-radius: 10%;
+        background-color: #f5cf52;
+      }
+      
+      
+      #firework31 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework31 .explosion::before {
+        animation: explosion 1s ease-in-out infinite;
+        background-color: blueviolet;
+      }
+      #firework32 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework32 .explosion::before {
+        animation: explosion 1s ease-in-out infinite;
+        background-color: red;
+      }
+      #firework33 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework33 .explosion::before {
+        animation: explosion 1s ease-in-out infinite;
+        background-color:cyan;
+      }
+      #firework34 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework34 .explosion::before {
+        animation: explosion 1s ease-in-out infinite;
+        background-color: darkgreen;
+      }
+      #firework35 {
+        left: 50%;
+        top: 50%;
+        transform: scale(1);
+      }
+      #firework35 .explosion::before {
+        animation: explosion 1s ease-in-out infinite;
+        background-color:chartreuse;
+      }
+      
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <script>
+      function opengift(){
+        document.getElementById("giftbox").style.display="none";
+        document.getElementById("deepak").style.display="block";
+      }
+      
+      function future(){
+        
+        document.getElementById("deepak").style.display="none";
+        document.getElementById("loader").style.display="block";
+        setTimeout(function(){
+          document.getElementById("myAudio").play();
+          document.getElementById("elon").style.display="block";
+         document.getElementById("loader").style.display="none"; }, 3000);
+      }
+    </script>
+  </head>
+  <body>
+    
+    <div id="giftbox" style="display: block;">
+      <img src="gift.jpg" alt="">
+      <div class="centered"><center>
+        <h4 >Happy Birthday</h4>
+        <h4>DEEPAK VASAN</h4>
+        <p>🎂🎂🎂</p>
+        
+        <input type="button" value="Open Your Present" style="
+        background: cyan;" onclick="opengift()">
+      </center>
+      </div>
+    </div>
+    <div class="imgclass" id="deepak" style="display: none;">
+      <h2><center>Face Predictor</center></h2>
+      <img src="deepak.jpg" alt="" style="
+      height: 250;
+      padding: 0 15px 0 0;
+      border: radius 50%;">
+
+      <br><br>
+      <center><h5>Click here to Predict Yout Manhood Face.</h5>
+      <button onclick="future()">Face predictor</button></center>
+    </div>
+
+    <div class="loader" id="loader" style="display: none;">
+
+    </div>
+
+    <div class="imgclass" id="elon" style="display: none;">
+      <img src="elon.jpg" alt="" style="height: 250;
+      padding: 0 15px 0 0;
+      border: radius 50%;">
+      <audio src="minions.mp3" id="myAudio"></audio>
+
+      <div class="firework" id="firework1">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      <div class="firework" id="firework2">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      <div class="firework" id="firework3">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework4">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework5">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework6">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework7">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework8">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework9">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      <div class="firework" id="firework10">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework11">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework12">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework13">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework14">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework15">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework16">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework17">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework18">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework19">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework20">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework21">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework22">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework23">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework24">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework25">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework26">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework27">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework28">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework29">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+      
+      <div class="firework" id="firework30">
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+        <div class="explosion"></div>
+      </div>
+    </div>
+  </body>
+</html>
